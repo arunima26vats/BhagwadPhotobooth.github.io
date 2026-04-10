@@ -1,0 +1,498 @@
+/* --- CSS VARIABLES & THEME --- */
+:root {
+    --bg-blue: #a3c4f3;
+    --stripe-blue: #8eb9f5;
+    --paper-white: #ffffff;
+    --paper-pink: #fbc4ab;
+    --booth-yellow: #ffed86;
+    --header-green: #9de2af;
+    --sketch-black: #1a1a1a;
+    --sketch-white: #ffffff;
+    --sketch-accent: #2ecc71; 
+}
+
+/* --- BASE STYLES --- */
+body {
+    margin: 0;
+    font-family: 'Gaegu', cursive; 
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* --- 1. LANDING PAGE (SCRAPBOOK THEME) --- */
+.scrapbook-container {
+    width: 450px;
+    height: 800px; 
+    background-color: var(--bg-blue);
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 35px, var(--stripe-blue) 35px, var(--stripe-blue) 70px);
+    border: 12px solid white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-banner {
+    background-color: var(--header-green);
+    margin: 10px;
+    padding: 20px 10px;
+    border-radius: 80px 80px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.title-block span {
+    background: white;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
+    padding: 2px 12px;
+    margin: 3px;
+    display: inline-block;
+    border: 3px solid #000;
+}
+
+.title-block span:nth-child(odd) { transform: rotate(-4deg); }
+.title-block span:nth-child(even) { transform: rotate(3deg); }
+
+.main-content-area {
+    position: relative;
+    flex-grow: 1;
+}
+
+/* Tagline "Sticker" */
+.tagline-sticker {
+    position: absolute;
+    top: 5px; 
+    left: 40px;
+    background: white;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    transform: rotate(-5deg);
+    border: 1px solid #ddd;
+    z-index: 20;
+}
+
+/* Perfectly Aligned Name Input Area */
+.user-input-area {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 30;
+}
+
+#user-name {
+    padding: 12px 20px;
+    font-family: 'Gaegu', cursive;
+    font-size: 1.2rem;
+    border: 3px solid #333;
+    border-radius: 10px;
+    background: #fffbe6;
+    outline: none;
+    width: 250px;
+    text-align: center;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+/* Scrapbook Paper Cards */
+.scrapbook-sticker {
+    position: absolute;
+    background: var(--paper-pink);
+    padding: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    z-index: 5;
+}
+
+.inner-paper {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.coin-card {
+    top: 180px;
+    left: 20px;
+    width: 120px;
+    transform: rotate(-3deg);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.coin-card:hover { transform: rotate(-3deg) scale(1.05); }
+
+.coin-hole {
+    width: 30px;
+    height: 50px;
+    border: 4px solid #000;
+    border-radius: 15px;
+    margin: 10px auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.info-card {
+    top: 250px;
+    left: 155px;
+    width: 90px;
+    transform: rotate(6deg);
+}
+
+.film-strip-graphic span {
+    display: block;
+    width: 20px;
+    height: 10px;
+    border: 2px solid #000;
+    margin: 2px auto;
+}
+
+.booth-sticker {
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    width: 170px;
+    height: 300px;
+    background: var(--booth-yellow);
+    border: 3px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+    transform: rotate(2deg);
+    z-index: 1;
+}
+
+.booth-roof { height: 50px; background: #000; }
+
+.checker-curtain {
+    position: absolute;
+    right: 0; top: 50px; bottom: 0; width: 50%;
+    background-color: #fff;
+    background-image: repeating-linear-gradient(45deg, var(--header-green) 25%, transparent 25%, transparent 75%, var(--header-green) 75%, var(--header-green)), 
+                      repeating-linear-gradient(45deg, var(--header-green) 25%, #fff 25%, #fff 75%, var(--header-green) 75%, var(--header-green));
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    border-left: 2px solid #333;
+}
+
+.smile-sign {
+    background: white;
+    border: 2px solid #000;
+    padding: 3px 8px;
+    position: absolute;
+    top: 80px; left: 10px;
+    transform: rotate(-5deg);
+    font-weight: bold;
+}
+
+/* --- 2. CAMERA PAGE (SKETCH THEME) --- */
+.sketch-theme {
+    background-color: var(--sketch-white);
+    width: 95vw;
+    max-width: 850px;
+    padding: 30px;
+    border: 5px solid var(--sketch-black);
+}
+
+.sketch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.sketch-viewfinder {
+    width: 90vw;
+    max-width: 450px;
+    /* Remove the fixed aspect-ratio here so the box can grow for buttons */
+    border: 4px solid var(--sketch-black);
+    padding: 15px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Smooth transition for live filter switching */
+video { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    background: #000;
+    transition: filter 0.3s ease;
+}
+
+
+#countdown {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    z-index: 20;
+}
+
+.status-light {
+    width: 15px; height: 15px;
+    border: 2px solid var(--sketch-black);
+    border-radius: 50%;
+    background: #ff4757;
+}
+.status-light.ready { background: var(--sketch-accent); }
+
+/* --- 3. PHOTOSTRIP GALLERY --- */
+.photostrip-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.photostrip {
+    background: white;
+    padding: 12px;
+    border: 3px solid var(--sketch-black);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 150px;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.photostrip img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+
+.strip-footer {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.7rem;
+    padding-top: 5px;
+    border-top: 1px dashed #ccc;
+}
+
+.delete-btn {
+    position: absolute;
+    top: -10px; right: -10px;
+    background: #ff4757;
+    color: white;
+    border: 2px solid var(--sketch-black);
+    border-radius: 50%;
+    width: 25px; height: 25px;
+    cursor: pointer;
+}
+
+.sketch-exit, .sketch-btn, .sketch-select {
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    background: #ffffff;
+    border: 3px solid #000000;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+    outline: none;
+}
+
+.sketch-exit {
+    font-size: 1.6rem;
+    padding: 4px 18px;
+    transform: rotate(-1.5deg);
+}
+
+.sketch-btn {
+    font-size: 1.4rem;
+    padding: 10px 25px;
+    transition: transform 0.1s ease, background-color 0.2s;
+}
+
+#snap-btn { transform: rotate(-3deg); }
+#clear-btn { transform: rotate(3deg); }
+
+.sketch-btn:hover { transform: scale(1.05); background-color: #f8f8f8; }
+.sketch-btn:active { transform: scale(0.95); }
+.sketch-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: rotate(0deg); }
+
+.viewfinder-ui {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px; /* Space between the square video and the buttons */
+    width: 100%;
+    z-index: 100;
+}
+
+.filter-toggle-sketch {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Gaegu', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Sizing updated to fit longer HUJI FILM names */
+.sketch-select {
+    font-size: 1.5rem; 
+    padding: 5px 10px;
+    min-width: 150px; /* Reduced from 180px */
+    transform: rotate(1deg);
+}
+.sketch-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sketch-instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instr-step-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    border: 3px solid #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+}
+
+.step-num {
+    font-size: 2rem;
+    border: 2px solid #000;
+    padding: 0 10px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.sketch-hardware-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hardware-item-box {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    transform: rotate(2deg);
+}
+
+.hardware-item-box:nth-child(even) { transform: rotate(-2deg); }
+
+.status-light {
+    width: 20px; height: 20px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: #ff4757;
+    margin-bottom: 5px;
+}
+.status-light.ready { background: #2ecc71; }
+
+.gallery-section-sketch h2 {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: rotate(-1deg); 
+}
+
+.download-btn {
+    margin-top: 10px;
+    background: #fff;
+    border: 2px solid #000;
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    .scrapbook-container { 
+        width: 95vw; 
+        height: 800px;
+        border-width: 8px; 
+    }
+    .sketch-theme { width: 95vw; padding: 15px; }
+    .sketch-viewfinder { width: 100%; max-width: 320px; }
+    .instr-step-box { width: 90% !important; font-size: 0.9rem; }
+    .sketch-btn { font-size: 0.9rem; padding: 8px 10px; flex: 1; }
+    .filter-toggle-sketch { flex-direction: column; font-size: 1.5rem; }
+    .photostrip { width: 140px; }
+    /* Ensure the select box doesn't break mobile layout */
+    .sketch-select { min-width: 160px; font-size: 1.3rem; }
+}
+/* Custom Muted Chocolate Sepia */
+/* Muted Matte Sepia (Non-Yellow) */
+.rich-sepia {
+    filter: 
+        grayscale(100%) 
+        sepia(50%)      /* Reduced from 100% to stop the yellowing */
+        brightness(0.8) /* Dims the highlights to that matte tan look */
+        contrast(1.3)   /* Keeps the hair and eyes deep and dark */
+        saturate(0.8)   /* Dulls the color further */
+        hue-rotate(-10deg) 
+        !important;
+}
+/* Mirror the video preview for the front camera only */
+video.mirrored {
+    transform: scaleX(-1);
+}
+.video-container {
+    width: 100%;
+    aspect-ratio: 1/1; 
+    overflow: hidden; /* Hide the parts we cropped out */
+    background: #000;
+    border: 3px solid #000;
+}
+#video {
+    width: 100%;
+    height: 100%;
+    min-width: 100%; /* Force fill */
+    min-height: 100%; /* Force fill */
+    object-fit: cover; /* Crop the excess sides */
+    display: block;
+}
+@media (max-width: 600px) {
+    .viewfinder-ui {
+        flex-direction: column; /* Stack buttons on phone so they don't hide */
+    }
+}
+.price-bubble-sketch {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative; /* Stop it from floating over other things */
+}
