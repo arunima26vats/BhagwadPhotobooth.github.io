@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Retro Photo Booth</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <style>
+        /* Ensures the name input area doesn't overlap stickers */
+        .user-input-area {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            z-index: 10;
+        }
+        #user-name {
+            padding: 12px 20px;
+            font-family: 'Gaegu', cursive;
+            font-size: 1.2rem;
+            border: 3px solid #333;
+            border-radius: 10px;
+            background: #fffbe6;
+            outline: none;
+            width: 250px;
+            text-align: center;
+        }
+        #user-name:focus {
+            border-color: #ff4757;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="landing-page" class="scrapbook-container">
+        <div class="header-banner">
+            <div class="stars top-stars">★ ★</div>
+            <div class="title-block">
+                <div class="letter-row">
+                    <span>P</span><span>H</span><span>O</span><span>T</span><span>O</span>
+                </div>
+                <div class="letter-row">
+                    <span>B</span><span>O</span><span>O</span><span>T</span><span>H</span>
+                </div>
+            </div>
+            <div class="stars bottom-stars">★ ★ ★</div>
+        </div>
+
+        <div class="main-content-area">
+            <div class="tagline-sticker">Let's make memories together</div>
+
+            <div class="user-input-area">
+                <input type="text" id="user-name" placeholder="ENTER YOUR NAME..." required>
+                
+                <div id="start-btn" class="scrapbook-sticker coin-card" style="cursor: pointer;">
+                    <div class="inner-paper">
+                        <p class="price">$0.00</p>
+                        <div class="coin-hole">0</div>
+                        <p class="label">START BOOTH!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scrapbook-sticker info-card">
+                <div class="inner-paper">
+                    <p class="qty">4x</p>
+                    <div class="film-strip-graphic">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p class="label">PHOTOS</p>
+                </div>
+            </div>
+
+            <div class="booth-sticker">
+                <div class="booth-roof"></div>
+                <div class="booth-interior">
+                    <div class="smile-sign">SMILE!</div>
+                    <div class="stool"></div>
+                    <div class="checker-curtain"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-side" class="hidden sketch-theme">
+        <div class="sketch-wrapper">
+            <div class="sketch-top-frame">
+                <button id="back-to-menu" class="sketch-exit">BACK</button>
+            </div>
+
+            <div class="sketch-viewfinder">
+                <div class="video-container">
+                    <video id="video" autoplay playsinline></video>
+                    <div id="countdown" class="hidden"></div>
+                    <div id="shot-indicator" class="hidden">SHOT 1/4</div>
+                </div>
+                
+                <div class="price-bubble-sketch">
+                    $0 = 4pics
+                </div>
+
+                <div class="viewfinder-ui">
+                    <button id="snap-btn" class="sketch-btn primary">START SESSION</button>
+                    <button id="flip-btn" class="sketch-btn">FLIP CAMERA</button>
+                    <button id="clear-btn" class="sketch-btn">CLEAR STRIPS</button>
+                </div>
+            </div>
+
+            <div class="filter-toggle-sketch">
+                <span>FILTER:</span>
+                <select id="filter-select" class="sketch-select">
+                    <option value="none" selected>COLOUR</option>
+                    <option value="grayscale(100%)">BLACK & WHITE</option>
+                    <option value="rich-sepia">SEPIA</option>
+                </select>
+            </div>
+
+            <div class="sketch-footer">
+                <div class="sketch-instructions-container">
+                    <div class="instr-step-box">
+                        <div class="step-num">1</div>
+                        <p>Choose filters</p>
+                    </div>
+                    <div class="instr-step-box">
+                        <div class="step-num">2</div>
+                        <p>Press Start: 4 photos taken</p>
+                    </div>
+                    <div class="instr-step-box">
+                        <div class="step-num">3</div>
+                        <p>Pick up your prints!</p>
+                    </div>
+                </div>
+
+                <div class="sketch-hardware-container"> 
+                    <div class="hardware-item-box">
+                        <div id="status-bulb" class="status-light"></div>
+                        <span>READY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="gallery-section-sketch">
+            <h2>YOUR PRINTS</h2>
+            <div id="gallery" class="photostrip-gallery"></div>
+        </section>
+    </div>
+
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
